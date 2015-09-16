@@ -37,24 +37,24 @@ function vst(a,b,c,d){
 with(a.style){backgroundColor=d;color=c;borderColor=c;}
 with(b.style){backgroundColor=c;color="#FFF";borderColor=c;}
 }
-function rvi(c,i){
+function rvi(c){
 var p=c.parentNode;
 var d=p.nextSibling;
 var t=d.nextSibling;
 with(c){
 className='dzf';
-removeAttribute("onclick");
+setAttribute("onclick","javascript:void(0);");
 var b=nextSibling?nextSibling:previousSibling;
 var j=nextSibling?1:0;
 }
 with(b){
 className='t3h';
-setAttribute("onclick","rvi(this,'"+j+"')");
+setAttribute("onclick","rvi(this)");
 }
 if(j)vst(b,c,"#4AB0EF","#F5F7FB");else vst(b,c,"#F48040","#FDF9F7");
 with(t.style)
 if(display!="block"){display="block";d.style.display="none";}
-else {display="none";d.style.display="block";}
+else{display="none";d.style.display="block";}
 }
 function cmy(c,a){
 for(var i=0;i<a.length;i++)
