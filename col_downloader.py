@@ -585,7 +585,9 @@ class dic_downloader(downloader):
     def __replbl(self, m):
         lbl = ''.join([m.group(1), '.', m.group(2)])
         p = re.compile(r'(\s*&amp;\s*)(<span class="lbl (?:geo|subj|register|misc|lang)">)', re.I)
-        return p.sub(r'\2\1', lbl)
+        lbl = p.sub(r'\2\1', lbl)
+        p = re.compile(r'\s*</span>\s*\(\s*<span class="lbl (?:geo|subj|register|misc|lang)">\s*', re.I)
+        return p.sub(r'. ', lbl)
 
     def __repexp(self, m):
         text = m.group(2)
@@ -677,13 +679,15 @@ class dic_downloader(downloader):
             line = p.sub(r'', line)
             p = re.compile(r'<span class="hwd_sound">\s*<span class="hwd_sound">\s*(<img src=")[^<>]+?(onclick=)[^<>]+?[\'"]/sounds/([^<>]+?)\.mp3[^<>]+>\s*</span>\s*</span(?=>)', re.I)
             line = p.sub(r'''\1sp.png" class="ik4" \2"aes(this,'\3')"''', line)
+            p = re.compile(r'\s*(<span\s+class="pron">)\s*', re.I)
+            line = p.sub(r' \1', line)
             p = re.compile(r'(<span class="synonym[^<>"]*">[^<>]+)</a>(?=\s*</span>)', re.I)
             line = p.sub(r'\1', line)
             p = re.compile(r'(<h([34]) class="gramGrp entry_h3">related[^<>]+</h\2>)\s*([^<>]+)\s*(?=</div>)', re.I)
             line = p.sub(r'\1<span class="zkl">\3</span>', line)
             p = re.compile(r'<a class="link-right"[^<>]*>View thesaurus entry</a>', re.I)
             line = p.sub(r'', line)
-            p = re.compile(r'\(\s*(<span class="lbl (?:geo|subj|register|misc|lang)">.+?)(</span>)\s*\)', re.I)
+            p = re.compile(r'\(?\s*(<span class="lbl (?:geo|subj|register|misc|lang)">.+?)(</span>)\s*\)', re.I)
             line = p.sub(self.__replbl, line)
             p = re.compile(r'(?<=<div )id="examples_box"\s+(class=)[^<>]+(>.+?</div>$)', re.I)
             line = p.sub(self.__repexp, line)
@@ -694,8 +698,8 @@ class dic_downloader(downloader):
             line = p.sub(r'/\1/', line)
             p = re.compile(r'(?<=<li class=")sense_list_item level_3"\s*style="list-style-type:\s*square(?=">)', re.I)
             line = p.sub(r'ko0', line)
-            p = re.compile(r'\(\s*(<em class="hi">)([^<>]+)(</em>)\s*\)', re.I)
-            line = p.sub(r'\1(\2)\3', line)
+            p = re.compile(r'\(\s*<em( class=")hi(">)([^<>]+)(</)em>\s*\)', re.I)
+            line = p.sub(r'<span\1igi\2<span>(</span>\3<span>)</span>\4span>', line)
             p = re.compile(r'([^>\s]\s*</span>)\s*(\xE2\x87\x92)(\s*.+?)(?=</li>)', re.I)
             line = p.sub(self.__addbr, line)
             p = re.compile(r'(\xE2\x87\x92)(?=\s*<span class="orth">)', re.I)
@@ -814,12 +818,10 @@ def process(dic_dl, args):
 
 def merge_d_t(name, dc, th, key):
     th = th.replace('<link rel="stylesheet"href="COT.css"type="text/css">', '')
-    p = re.compile(r'(?:<a id="[^<>]+"></a>)?<h2 class="quf">.+?</h2>', re.I)
-    th = p.sub(r'', th)
     p = re.compile(r'<div class="sib">.+?</div></div></div>', re.I)
     dc = p.sub(r'', dc)
     p = re.compile(r'(<link\s[^<>]+>)', re.I)
-    dc = p.sub(r'\1<div class="c1a"><div class="fvv"><span class="dzf">Dictionary</span><span class="t3h"onclick="rvi(this,1)">Thesaurus</span></div>', dc, 1)
+    dc = p.sub(r'\1<div class="c1a"><div class="fvv"><span class="dzf"onclick="javascript:void(0);">Dictionary</span><span class="t3h"onclick="rvi(this)">Thesaurus</span></div>', dc, 1)
     p = re.compile(r'(?=<script)', re.I)
     if p.search(dc):
         dc = p.sub(''.join(['</div>', th]), dc, 1)
@@ -857,7 +859,7 @@ def merge(basedir):
             if ln == '</>':
                 key, wdef, uk = lns[0], lns[1], lns[0].lower()
                 if uk in thes and thes[uk]:
-                    if not lns[0].startswith('@@@') and not thes[uk][1].startswith('@@@'):
+                    if not wdef.startswith('@@@') and not thes[uk][1].startswith('@@@'):
                         wdef = merge_d_t(basedir, wdef, thes[uk][1], lns[0])
                         thes[uk] = None
                 fw.write('\n'.join([key, wdef, '</>\n']))
