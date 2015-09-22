@@ -31,7 +31,7 @@ em.ilg{color:black;font-family:Helvetica;font-size:95%;font-weight:normal;font-s
 .wve:before{content:"\025BA";font-size:70%;font-weight:normal;vertical-align:top}
 .wvh .x3h{color:royalblue;font-weight:bold;text-decoration:none;font-family:verdana;font-size:95%}
 .wvh .x3h:before{content:"-";color:black;padding-right:2px}
-.yxc{background-color:#F3F6FE;border-left:3px #36B solid;margin:.5em 1.4em;margin-left:0.6em}
+.yxc{background-color:#F3F6FE;border-left:3px #36B solid;margin:.5em 1.4em;padding-left:0.6em}
 .yxc em{color:#069}
 .bdm{vertical-align:text-top;position:relative;top:-2px;font-size:75%}
 .lij .bbw, .iji .bbw{position:absolute;font-family:Helvetica;left:-.65em}
