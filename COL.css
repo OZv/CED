@@ -19,7 +19,7 @@
 .sg0{font-weight:bold;color:sienna;font-family:"Trebuchet MS"}
 .fvd{color:blue}
 .d3l div, .uoh div{margin-bottom:0.3em}
-.d3l p, .dxr .u9w q, .uoh q{color:#369;margin:0}
+.d3l p, .dxr .u9w q, .uoh q{color:#369;margin:0;font-family:Helvetica}
 .tvr .u9w q{color:#666;margin:0;font-size:90%;font-family:Helvetica;letter-spacing:0.5px}
 .tvr .u9w q:before{content:"\021D2\020";color:#FF7E1E}
 .tvr .lij b, .tvr .iji b, .tvr .iiz b{padding-left:3px;padding-right:3px;border-radius:2px;border:brown solid  1px;color:brown;font-size:80%;text-transform:uppercase;font-family:Verdana;line-height:100%}
@@ -58,13 +58,13 @@ h2.quf{color:blue;font-size:120%;margin-bottom:1em}
 .roj{margin:0.5em 0;background-color:#eeece1}
 .s5r, h2.fhq{float:left;color:#333;letter-spacing:0.5px;font-weight:bold;font-size:100%;text-transform:uppercase;font-family:Helvetica}
 .s5r:after, h2.fhq:after{content:":\020";padding-right:0.3em}
-h2.h2k, h4.tsw, h3.qb3, .exq h2.iht, .t6l h2.iht, .t6l h3.v3p, h3.sqw, .wve, h4.hyt, h3.hni{color:#194885;font-family:Helvetica;margin-bottom:0.3em;letter-spacing:0.5px;white-space:nowrap}
+h2.h2k, h4.tsw, h3.qb3, .exq h2.iht, .t6l h2.iht, .t6l h3.v3p, h3.sqw, .wve, h4.hyt, h3.hni{color:#194885;font-family:Helvetica;margin-bottom:0.2em;letter-spacing:0.5px;white-space:nowrap}
 h4.tsw:before, h3.sqw:before, h4.hyt:before, h3.hni:before, .wve:before{content:"\025BA";font-size:70%;font-weight:normal;vertical-align:top}
 .sak{position:absolute;left:-1em}
 .xvu{margin-left:1em;margin-bottom:0.2em;position:relative}
 .iji, .lij{margin-bottom:0.2em}
 .tvr .x5z+.x5z, .dxr div[id]+.exq, .j84+.sib, .mh1+.z1r{margin-top:.5em}
-h3.sqw+.w4y:before, h4.tsw+.w4y:before, .sbt .w4y:first-child:before, .wvh .x3h:before, .zkl:before{content:"-";color:black;padding-right:2px;font-family:verdana}
+h3.sqw+.w4y:before, h4.tsw+.w4y:before, .sbt .w4y:first-child:before, .wvh .x3h:before, .zkl:before{content:"-";color:black;padding-right:2px;font-size:110%}
 .kgo .sg0:before{content:",\020";color:black;font-weight:normal;font-family:"Lucida Grande","Lucida Sans Unicode","sans-serif"}
 .kgo .sg0+.sg0:before{content:""}
 .roj, .sib, .x5z{margin-bottom:0.6em}
@@ -77,7 +77,7 @@ h3.qb3{border-top:1px #ccc dotted;border-bottom:1px #ccc dotted;background-color
 .nfl{color:black;font-weight:normal;font-size:70%}
 .uoh div:before{content:"\000B7\020";font-weight:bold;position:absolute;left:-.7em}
 .uoh div{margin-left:0.8em;position:relative}
-.uoh q{quotes:none}
+.uoh q, .u9w q{quotes:none}
 .cfu{margin-left:1.4em;margin-top:0.5em;position:relative}
 .oyu+.hdu{margin-left:.5em;margin-top:0.5em}
 .wve{display:inline-block;font-weight:bold;text-transform:capitalize;margin-top:0.3em}
