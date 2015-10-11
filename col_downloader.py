@@ -664,6 +664,8 @@ class dic_downloader(downloader):
         line = p.sub(r'</span>\2</span> \1', line)
         p = re.compile(r'(?<=<span class="def">)\s*\.?\s*', re.I)
         line = p.sub(r'', line)
+        p = re.compile(r'\s*(</span>)(<span class="def">)\s*', re.I)
+        line = p.sub(r'\1 \2', line)
         p = re.compile(r'(?<=<li class=")[^<>"]+"\s*style="list-style-type:\s*none(?=">)', re.I)
         line = p.sub(r'lij', line)
         p = re.compile(r'(<li class="[^<>"]+")\s*value=[^<>]*(?=>)', re.I)
