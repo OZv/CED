@@ -583,7 +583,7 @@ class dic_downloader(downloader):
             return m.group(0)
 
     def __replbl(self, m):
-        lbl = ''.join([m.group(1), '.', m.group(2)])
+        lbl = ''.join([m.group(1), '.', m.group(2), ' '])
         p = re.compile(r'(\s*&amp;\s*)(<span class="lbl (?:geo|subj|register|misc|lang)">)', re.I)
         lbl = p.sub(r'\2\1', lbl)
         p = re.compile(r'\s*</span>\s*\(\s*<span class="lbl (?:geo|subj|register|misc|lang)">\s*', re.I)
@@ -689,7 +689,7 @@ class dic_downloader(downloader):
             line = p.sub(r'\1<span class="zkl">\3</span>', line)
             p = re.compile(r'<a class="link-right"[^<>]*>View thesaurus entry</a>', re.I)
             line = p.sub(r'', line)
-            p = re.compile(r'\(?\s*(<span class="lbl (?:geo|subj|register|misc|lang)">.+?)(</span>)\s*\)', re.I)
+            p = re.compile(r'\(?\s*(<span class="lbl (?:geo|subj|register|misc|lang)">.+?)\s*(</span>)\s*\)\s*', re.I)
             line = p.sub(self.__replbl, line)
             p = re.compile(r'(?<=<div )id="examples_box"\s+(class=)[^<>]+(>.+?</div>$)', re.I)
             line = p.sub(self.__repexp, line)
