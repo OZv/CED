@@ -670,6 +670,18 @@ class dic_downloader(downloader):
         line = p.sub(r'lij', line)
         p = re.compile(r'(<li class="[^<>"]+")\s*value=[^<>]*(?=>)', re.I)
         line = p.sub(r'\1', line)
+        p = re.compile(r'<h([23])[^<>]*>Definitions</h\1>', re.I)
+        line = p.sub(r'', line)
+        p = re.compile(r'<ol[^<>]*>\s*<li[^<>]*>\s*</li>\s*</ol>', re.I)
+        line = p.sub(r'', line)
+        p = re.compile(r'<([ou]l|li)[^<>]*>\s*</\1>', re.I)
+        line = p.sub(r'', line)
+        p = re.compile(r'<div [^<>]*class="[^<>"]*?term-subsec">\s*<h(\d)>[^<>]*</h\1>\s*</div>', re.I)
+        line = p.sub(r'', line)
+        n = 1
+        while n:
+            p = re.compile(r'<div(?: class="[^<>"]*?hom-subsec")?>\s*</div>', re.I)
+            line, n = p.subn(r'', line)
         if self.diff != 't':
             p = re.compile(r'###(.+?)(?=$)', re.I)
             m = p.search(line)
@@ -679,8 +691,6 @@ class dic_downloader(downloader):
                 freq = p.sub(r'\1px\2 class="ig6"', m.group(1))
                 p = re.compile(r'(<h([12])[^<>]*>)(?=.+?</h\2>\s*<div\s+class="definitions hom-subsec"[^<>]*>)', re.I)
                 line = p.sub(''.join([freq, r'\1']), line, 1)
-            p = re.compile(r'<h([23])[^<>]*>Definitions</h\1>', re.I)
-            line = p.sub(r'', line)
             p = re.compile(r'<span class="hwd_sound">\s*<span class="hwd_sound">\s*(<img src=")[^<>]+?(onclick=)[^<>]+?[\'"]/sounds/([^<>]+?)\.mp3[^<>]+>\s*</span>\s*</span(?=>)', re.I)
             line = p.sub(r'''\1sp.png" class="ik4" \2"aes(this,'\3')"''', line)
             p = re.compile(r'\s*(<span\s+class="pron">)\s*', re.I)
@@ -768,10 +778,8 @@ class dic_downloader(downloader):
         line = p.sub(r'entry://', line)
         p = re.compile(r'(?<=<)(span|div|h[1-4]|p|ol|li|em|ul|sup|cite)\s*(?:id="[^<>"]+")?(\sclass=")([^<>"]+?)\s*(?=")', re.I)
         line = p.sub(self.__repcls, line)
-        n = 1
-        while n:
-            p = re.compile(r'<(h1|ul|ol|li)([^<>]*>.+?)</\1>', re.I)
-            line, n = p.subn(r'<div\2</div>', line)
+        p = re.compile(r'(</?)(?:h1|ul|ol|li)\b', re.I)
+        line = p.sub(r'\1div', line)
         line = ''.join(['<link ', lid, 'rel="stylesheet"href="', cfs, '.css"type="text/css"><div class="', cls, '">', line, src, '</div>'])
         p = re.compile(r'\s+(?=>|</?div|</?p)', re.I)
         line = p.sub(r'', line)
