@@ -16,8 +16,8 @@ em.ilg{color:black;font-family:Helvetica;font-size:95%;font-weight:normal;font-s
 .ggs{color:#B8860B}
 .xgv{color:royalblue;font-weight:bold;text-decoration:none}
 .tvr .lij b, .tvr .iji b, .tvr .iiz b{padding-left:3px;padding-right:3px;border-radius:2px;border:brown solid  1px;color:brown;font-size:80%;text-transform:uppercase;font-family:Verdana;line-height:100%}
-.n7y{font-style:normal;font-weight:normal;color:#090;font-size:95%;font-family:Helvetica;letter-spacing:0.5px}
-.tvr .n7y i{color:black}
+.n7y{font-style:normal;font-weight:normal;color:#090;font-size:95%;font-family:Helvetica}
+.tvr .n7y i{color:#333}
 .tvr .oyu{counter-reset:ohe;padding:0.2em 0 0 1.4em}
 .tvr .iji{margin-left:.5em;position:relative}
 .tvr .iji:before{display:inline-block;position:absolute;left:-1.7em;color:#1c4b8b;font-family:Helvetica;font-weight:bold;letter-spacing:-0.5px}
