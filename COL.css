@@ -66,6 +66,9 @@ h4.tsw:before, h3.sqw:before, h4.hyt:before, h3.hni:before, .wve:before{content:
 .iji, .lij{margin-bottom:0.2em}
 .tvr .x5z+.x5z, .dxr div[id]+.exq, .j84+.sib, .mh1+.z1r{margin-top:.5em}
 h3.sqw+.w4y:before, h4.tsw+.w4y:before, .sbt .w4y:first-child:before, .wvh .x3h:before, .zkl:before{content:"-";color:black;padding-right:2px;font-size:110%}
+h3.sqw+.w4y:before, h4.tsw+.w4y:before, .sbt .w4y:first-child:before{position:absolute;left:-.6em}
+.sbt h3.sqw, .sbt h4.tsw{text-indent:-.6em}
+.sbt{margin-left:.7em;position:relative}
 .kgo .sg0:before{content:",\020";color:black;font-weight:normal;font-family:"Lucida Grande","Lucida Sans Unicode","sans-serif"}
 .kgo .sg0+.sg0:before{content:""}
 .roj, .sib, .x5z{margin-bottom:0.6em}
