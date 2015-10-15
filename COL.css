@@ -33,7 +33,7 @@ h2.quf{color:blue;font-size:120%;margin-bottom:1em}
 .kgo .czw{font-size:95%}
 .ggs, .uyp, .rgm, .iau, .hpa{color:teal;font-style:italic;font-size:80%;font-family:Helvetica;font-weight:normal;letter-spacing:0.5px}
 .ggs span, .uyp span, .rgm span, .iau span, .hpa span, .igi span{font-style:normal}
-.dxr .uyp, .dxr .rgm, .dxr .iau, h4.hyt, h3.hni{text-transform:capitalize}
+h4.hyt, h3.hni{text-transform:capitalize}
 .ggs, .hpa{color:#B8860B}
 .n7y{font-style:normal;font-weight:normal;color:#090;font-size:95%;font-family:Helvetica}
 .kgo .czw, .h5w .r4h, .n7y .r4h, .tvr .n7y i{color:#333}
@@ -67,7 +67,7 @@ h4.tsw:before, h3.sqw:before, h4.hyt:before, h3.hni:before, .wve:before{content:
 .tvr .x5z+.x5z, .dxr div[id]+.exq, .j84+.sib, .mh1+.z1r{margin-top:.5em}
 h3.sqw+.w4y:before, h4.tsw+.w4y:before, .sbt .w4y:first-child:before, .wvh .x3h:before, .zkl:before{content:"-";color:black;padding-right:2px;font-size:110%}
 h3.sqw+.w4y:before, h4.tsw+.w4y:before, .sbt .w4y:first-child:before{position:absolute;left:-.6em}
-.sbt h3.sqw, .sbt h4.tsw{text-indent:-.6em}
+.sbt h3.sqw, .sbt h4.tsw{text-indent:-.7em}
 .sbt{margin-left:.7em;position:relative}
 .kgo .sg0:before{content:",\020";color:black;font-weight:normal;font-family:"Lucida Grande","Lucida Sans Unicode","sans-serif"}
 .kgo .sg0+.sg0:before{content:""}
