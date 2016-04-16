@@ -4,10 +4,10 @@ var n=c.parentNode.nextSibling;
 with(n.style)
 if(display!="none"){
 display="none";
-c.src=c.src.replace(/\w+.png$/,"ax.png");
+c.className="yiq";
 }else{
 display="block";
-c.src=c.src.replace(/\w+.png$/,"ac.png");
+c.className="yjp";
 }
 }
 function aes(c,f){
@@ -70,7 +70,7 @@ with(previousSibling){
 var h=offsetHeight;
 with(childNodes[1])
 if(className=="yjp"&&d[i].offsetHeight>h*12){
-src=src.replace(/\w+.png$/,"ax.png");
+className="yiq";
 d[i].style.display="none";
 }
 }
